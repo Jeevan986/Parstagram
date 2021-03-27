@@ -91,7 +91,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let post = posts[section]
-        let comments = (post["comment"] as? [PFObject]) ?? []
+        let comments = (post["comments"] as? [PFObject]) ?? []
         return comments.count + 2
     }
     
@@ -102,7 +102,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.section]
-        let comments = (post["comment"] as? [PFObject]) ?? []
+        let comments = (post["comments"] as? [PFObject]) ?? []
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
